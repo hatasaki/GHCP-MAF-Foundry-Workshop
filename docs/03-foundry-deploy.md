@@ -39,7 +39,11 @@ requirements.txt                                    │
 
 ```bash
 azd version                       # 1.25.3 以上 (source-code deploy に必要)
+# 表示されないの場合は azd を新規インストール
+# バージョンが古い場合はアップグレード
 azd ext list                      # azure.ai.agents が表示されること
+# 表示されないの場合は azd extension install azure.ai.agents 
+# バージョンが古い場合は azd extension upgrade azure.ai.agents
 az account show
 ```
 
