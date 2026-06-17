@@ -47,6 +47,11 @@ data/eval_result_*.json
 !.vscode/settings.json.example
 .idea/
 
+# ---- Claude Code (local-only state) ----
+.claude/settings.local.json
+.claude/.session/
+.claude/cache/
+
 # ---- OS ----
 .DS_Store
 Thumbs.db
