@@ -1,5 +1,7 @@
 # GitHub Copilot × Microsoft Agent Framework × Microsoft Foundry ハンズオン ワークショップ
 
+> **The English version of this documentation is available here: [README-en.md](README-en.md)**
+
 GitHub Copilot の **Agent Skills** を活用しながら、**Microsoft Agent Framework (MAF) Python SDK** で「**Microsoft / Azure 最新情報エージェント**」を作り、**Microsoft Foundry の Hosted Agent** にデプロイ、**トレース／評価**、最後に **GitHub Actions CI/CD で自動デプロイ＋自動評価** までを一通り体験するワークショップです。
 
 ## 学習ゴール
