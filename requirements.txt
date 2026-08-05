@@ -1,0 +1,13 @@
+# src/agent.py の実行に必要なパッケージ (動作確認済みバージョンに固定)
+# agent-framework 1.10+ は Responses API に reasoning.encrypted_content を無条件付与し、
+# gpt-4.1-mini で 400 になるため 1.8.1 に固定する。
+agent-framework-core==1.8.1
+agent-framework-openai==1.8.1
+agent-framework-foundry==1.8.1
+
+# MCPStreamableHTTPTool の実行時依存。mcp 2.x は InitializeResult のフィールド名が変わり
+# agent-framework 1.8.1 と非互換なため 1.x に固定する。
+mcp<2
+
+azure-identity
+python-dotenv
