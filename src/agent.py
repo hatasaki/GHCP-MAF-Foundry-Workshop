@@ -1,6 +1,6 @@
 """MSUpdatesAgent: Microsoft 365 / Azure の最新リリース情報を日本語で回答する対話 CLI。
 
-Microsoft Release Communications (MRC) MCP と連携し、回答には必ず出典 URL を添える。
+Microsoft Release Communications (MRC) MCP と Microsoft Learn MCP に連携し、回答には必ず出典 URL を添える。
 同一 session を使い回して文脈を保持し、応答はストリーミングで逐次表示する。
 実行: `python src/agent.py` (quit / exit / 終了 で終了)
 """
@@ -40,11 +40,13 @@ def _require_env(name: str) -> str:
 
 
 MRC_MCP_URL = "https://www.microsoft.com/releasecommunications/mcp"
+LEARN_MCP_URL = "https://learn.microsoft.com/api/mcp"
 
 INSTRUCTIONS = """あなたは Microsoft 365 と Azure の最新リリース情報を回答する日本語アシスタントです。
 
 - 回答は必ず日本語で行ってください。
 - 情報を答える前に、必ず Microsoft Release Communications (MRC) MCP のツールを呼び出して一次情報を取得してください。
+- MRC で取得できない技術詳細や手順は Microsoft Learn (Learn) MCP のツールで補足してよいです。
 - ツールの結果に含まれる出典 URL を回答に必ず明記してください。
 - ツール結果に該当情報や URL が無い場合は、その旨を正直に伝え、URL を創作しないでください。
 - MCP で取得した一次情報に加えて、補足や関連ブログを探すときは Web 検索を使ってよいです。"""
@@ -93,6 +95,7 @@ async def main() -> None:
             instructions=INSTRUCTIONS,
             tools=[
                 MCPStreamableHTTPTool(name="mrc", url=MRC_MCP_URL),
+                MCPStreamableHTTPTool(name="learn", url=LEARN_MCP_URL),
                 client.get_web_search_tool(),
             ],
         ) as agent:
